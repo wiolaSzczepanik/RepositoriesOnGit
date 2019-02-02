@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RepositoryController {
 
-    @RequestMapping("epositories/{userName}/{repoName}")
-    InfoAboutRepository getUserAndRepoName(@PathVariable("userName") String userName,
+    @RequestMapping("repositories/{userName}/{repoName}")
+    public InfoAboutRepository getUserAndRepoName(@PathVariable("userName") String userName,
                                            @PathVariable("repoName") String repoName){
         InfoAboutRepository repo = new InfoAboutRepository();
         repo.setUserName(userName);
