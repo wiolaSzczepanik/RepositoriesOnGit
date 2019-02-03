@@ -9,33 +9,26 @@ import org.springframework.web.client.RestTemplate;
 public class RepositoryController {
 
     @RequestMapping("repositories/{userName}/{repoName}")
-    public RepoDetailsDTO details(@PathVariable("userName") String userName,
-                                  @PathVariable("repoName") String repoName){
+    public InfoAboutRepository details(@PathVariable("userName") String userName,
+                                        @PathVariable("repoName") String repoName){
 
-        RepoDetailsDTO repo = new RepoDetailsDTO();
-        String[] allInfo = callGithubApi(userName,repoName);
-        repo.setFull_name(allInfo[0]);
-        repo.setDescription(allInfo[1]);
-        repo.setUrl(allInfo[2]);
-        repo.setStargazers_count(allInfo[3]);
-        repo.setCreated_at(allInfo[4]);
+        InfoAboutRepository repo = new InfoAboutRepository();
+        GithubRepoDetailsDTO allInfo = callGithubApi(userName,repoName);
+        repo.setFullName(allInfo.getFull_name());
+        repo.setDescription(allInfo.getDescription());
+        repo.setCloneUrl(allInfo.getUrl());
+        repo.setStars(allInfo.getStargazers_count());
+        repo.setCreatedAt(allInfo.getCreated_at());
         return repo;
     }
-    
-    public String[] callGithubApi(String userName, String repoName){
+
+    private GithubRepoDetailsDTO callGithubApi(String userName, String repoName){
+        
         final String uri = "https://api.github.com/repos/"+userName+"/"+repoName;
 
         RestTemplate restTemplate = new RestTemplate();
-        RepoDetailsDTO repo = restTemplate.getForObject(uri, RepoDetailsDTO.class);
 
-        String[] details = new String[5];
-        details[0]=repo.getFull_name();
-        details[1]=repo.getDescription();
-        details[2]=repo.getUrl();
-        details[3]=repo.getStargazers_count();
-        details[4]=repo.getCreated_at();
-
-        return details;
+        return restTemplate.getForObject(uri, GithubRepoDetailsDTO.class);
     }
 
 

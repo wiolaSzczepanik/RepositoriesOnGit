@@ -2,22 +2,50 @@ package com.gitrepositories.gitrepositories;
 
 public class InfoAboutRepository {
 
-    String userName;
-    String repoName;
+    String fullName;
+    String description;
+    String cloneUrl;
+    String stars;
+    String createdAt;
 
-    public String getUserName() {
-        return userName;
+
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getRepoName() {
-        return repoName;
+    public String getDescription() {
+        return description;
     }
 
-    public void setRepoName(String repoName) {
-        this.repoName = repoName;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCloneUrl() {
+        return cloneUrl;
+    }
+
+    public void setCloneUrl(String cloneUrl) {
+        this.cloneUrl = cloneUrl;
+    }
+
+    public String getStars() {
+        return stars;
+    }
+
+    public void setStars(String stars) {
+        this.stars = stars;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 }

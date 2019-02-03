@@ -1,6 +1,6 @@
 package com.gitrepositories.gitrepositories;
 
-public class RepoDetailsDTO {
+public class GithubRepoDetailsDTO {
 
     String full_name;
     String description;
