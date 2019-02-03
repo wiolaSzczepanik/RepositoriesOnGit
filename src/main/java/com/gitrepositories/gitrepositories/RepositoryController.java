@@ -14,16 +14,16 @@ public class RepositoryController {
 
         InfoAboutRepository repo = new InfoAboutRepository();
         GithubRepoDetailsDTO allInfo = callGithubApi(userName,repoName);
-        repo.setFullName(allInfo.getFull_name());
+        repo.setFullName(allInfo.getFullName());
         repo.setDescription(allInfo.getDescription());
         repo.setCloneUrl(allInfo.getUrl());
-        repo.setStars(allInfo.getStargazers_count());
-        repo.setCreatedAt(allInfo.getCreated_at());
+        repo.setStars(allInfo.getStargazersCount());
+        repo.setCreatedAt(allInfo.getCreatedAt());
         return repo;
     }
 
     private GithubRepoDetailsDTO callGithubApi(String userName, String repoName){
-        
+
         final String uri = "https://api.github.com/repos/"+userName+"/"+repoName;
 
         RestTemplate restTemplate = new RestTemplate();

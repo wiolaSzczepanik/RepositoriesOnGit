@@ -1,19 +1,21 @@
 package com.gitrepositories.gitrepositories;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class GithubRepoDetailsDTO {
 
-    String full_name;
-    String description;
-    String url;
-    String stargazers_count;
-    String created_at;
+    @JsonProperty("full_name") private String fullName;
+    private String description;
+    private String url;
+    @JsonProperty("stargazers_count") private String stargazersCount;
+    @JsonProperty("created_at") private String createdAt;
 
-    public String getFull_name() {
-        return full_name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFull_name(String full_name) {
-        this.full_name = full_name;
+    public void setFullName(String full_name) {
+        this.fullName = full_name;
     }
 
     public String getDescription() {
@@ -32,19 +34,19 @@ public class GithubRepoDetailsDTO {
         this.url = url;
     }
 
-    public String getStargazers_count() {
-        return stargazers_count;
+    public String getStargazersCount() {
+        return stargazersCount;
     }
 
-    public void setStargazers_count(String stargazers_count) {
-        this.stargazers_count = stargazers_count;
+    public void setStargazersCount(String stargazers_count) {
+        this.stargazersCount = stargazers_count;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public String getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(String created_at) {
+        this.createdAt = created_at;
     }
 }
